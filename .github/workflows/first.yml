@@ -1,0 +1,17 @@
+name: fisrt workflow
+
+on: 
+  pull-request: 
+    types: [ labeled ] 
+
+
+
+jobs:
+  build:
+  if: ${{ github.event.label.name == 'first_job' }}
+  runs-on: ubuntu-latest
+
+  steps: 
+  -uses: actions/checkout@v2
+  -name: Run a one-line script
+    run: echo hello world
