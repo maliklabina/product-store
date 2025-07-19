@@ -1,0 +1,19 @@
+name: second workflow
+
+on:
+  pull_request: 
+    types:
+      - opened 
+      - edited
+
+jobs:
+  compare-versions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: compare versions
+        run: |
+          echo "Comparing versions..."
+          git fetch origin
+          git diff origin/main...HEAD
