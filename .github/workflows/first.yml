@@ -1,7 +1,7 @@
 name: fisrt workflow
 
 on: 
-  pull-req: 
+  pull-request: 
     types: [ labeled ] 
 
 
