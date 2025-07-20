@@ -1,0 +1,16 @@
+name: github secrets
+
+on: 
+  workflow_dispatch:
+
+
+jobs:
+  secrets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: print the secrets
+        run: |
+          echo "the value of GITHUB_TOKEN is ${{ secrets.GITHUB_TOKEN }}"
+          echo "the value of MY_SECRET is ${{ secrets.MY_SECRET }}"
+        
