@@ -1,0 +1,15 @@
+name: on push
+
+on:
+  push:
+    branches:
+      - main
+      - test2
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "triggered on push to main or test2 branch"
+    
