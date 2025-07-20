@@ -17,7 +17,7 @@ jobs:
       testvar: value2
 
     steps:
-      name: pritnt the values of env var
+    - name: print the values of env var
       run: |
         echo "the value of DAY_OF_WEEK is $DAY_OF_WEEK"
         echo "the value of greeting is $greeting"
