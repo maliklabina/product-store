@@ -1,0 +1,22 @@
+name: delete
+
+on:
+  delete:
+    branches:
+      - main
+      - test1
+      - test2
+
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a one-line script
+        run: echo "This workflow runs when a branch is deleted"
+      - name: print who deleted the branch
+        run: echo "The branch was deleted by ${{ github.actor }}"
+
+
