@@ -1,19 +1,29 @@
-name: second workflow
+name: pull request
 
-on:
-  pull_request: 
+on :
+  pull_request:
     types:
-      - opened 
+      - opened
+      - reopened
       - edited
+      - closed
+      - labeled
 
-jobs:
-  compare-versions:
+jobs: 
+  build:
     runs-on: ubuntu-latest
 
-    steps:
+    steps: 
       - uses: actions/checkout@v2
-      - name: compare versions
-        run: |
-          echo "Comparing versions..."
-          git fetch origin
-          git diff origin/main...HEAD
+      - name: Run a one-line script
+        run: echo "This is a pull request event"
+      - name: Check if the PR is closed
+        if: ${{ github.event.action == 'closed' }}
+        run: echo "The pull request has been closed."
+      - name: Check if the PR is labeled
+        if: ${{ github.event.action == 'labeled' }}
+        run: echo "A label has been added to the pull request."
+
+
+
+
