@@ -19,9 +19,9 @@ jobs:
     steps:
     - name: print the values of env var
       run: |
-        echo "the value of DAY_OF_WEEK is $DAY_OF_WEEK"
-        echo "the value of greeting is $greeting"
-        echo "the value of testvar is $testvar"
+        echo "the value of DAY_OF_WEEK is ${{env.DAY_OF_WEEK}}"
+        echo "the value of greeting is ${{env.greeting}}"
+        echo "the value of testvar is ${{env.testvar}}"
 
       env: 
         DAY_OF_WEEK: monday
