@@ -1,0 +1,21 @@
+name: issues
+
+on: 
+  issues:
+    types: [opened , edited, closed, reopened, labeled]
+
+jobs:
+  issue_job:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: show event name
+        run: echo "The event name is ${{ github.event_name }}"
+      - name: show action
+        run: echo "The action is ${{ github.event.action }}"
+      - name: show issue number
+        run: echo "The issue number is ${{ github.event.issue.number }}"
+      - name: show issue author
+        run: echo "The issue author is ${{ github.event.issue.user.login }}"
+      - name: show issue url
+        run: echo "The issue URL is ${{ github.event.issue.html_url }}"
